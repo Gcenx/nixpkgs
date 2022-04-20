@@ -7,9 +7,9 @@ index 7cb521eb98b..5804b88be84 100644
      for (i = 0; i < ARRAY_SIZE(CRYPT_knownLocations) && list_empty(&root_cert_list); i++)
          import_certs_from_path( CRYPT_knownLocations[i], TRUE );
 +
-+    char *nix_cert_file = getenv("NIX_SSL_CERT_FILE");
-+    if (nix_cert_file != NULL)
-+        import_certs_from_path(nix_cert_file, TRUE);
++    char *curl_ca_bundle = getenv("CURL_CA_BUNDLE");
++    if (curl_ca_bundle != NULL)
++        import_certs_from_path(curl_ca_bundle, TRUE);
  }
  
  static NTSTATUS enum_root_certs( void *args )
