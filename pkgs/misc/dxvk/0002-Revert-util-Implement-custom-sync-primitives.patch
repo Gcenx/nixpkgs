@@ -1,12 +1,10 @@
-diff --git a/src/util/thread.h b/src/util/thread.h
-index 28aeca8a..db5c9913 100644
+This reverts commit 7305da6951f038c253ef50431093e25679a52e17.
 --- a/src/util/thread.h
 +++ b/src/util/thread.h
-@@ -149,178 +149,8 @@ namespace dxvk {
-     }
+@@ -150,177 +150,4 @@ namespace dxvk {
    }
  
--
+ 
 -  /**
 -   * \brief SRW-based mutex implementation
 -   *
@@ -179,8 +177,5 @@ index 28aeca8a..db5c9913 100644
 -    CONDITION_VARIABLE m_cond;
 -
 -  };
-+  using mutex = std::mutex;
-+  using recursive_mutex = std::recursive_mutex;
-+  using condition_variable = std::condition_variable;
- 
+-
  }

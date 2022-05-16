@@ -40,12 +40,15 @@ let
 
     # Override this to patch DXVK itself (rather than the setup script).
     dxvkPatches = lib.optionals stdenvNoCC.isDarwin [
-      # Patch DXVK to work with MoltenVK even though it doesn’t support some required features.
+      # Revert commit "[d3d11] Require transform feedback for FL10_0 and newer"
+      # To help DXVK work with MoltenVK even though it doesn’t support some required features.
       # Some games work poorly (particularly Unreal Engine 4 games), but others work pretty well.
-      ./darwin-dxvk-compat.patch
+      ./0001-Revert-d3d11-Require-transform-feedback-for-FL10_0-a.patch
+      # Revert commit "[util] Implement custom sync primitives"
       # Use synchronization primitives from the C++ standard library to avoid deadlocks on Darwin.
       # See: https://www.reddit.com/r/macgaming/comments/t8liua/comment/hzsuce9/
-      ./darwin-thread-primitives.patch
+      ./0002-Revert-util-Implement-custom-sync-primitives.patch
+      ./0003-util-macOS-standard-thread-primitives.patch
     ];
 
     outputs = [ "out" "bin" "lib" ];
