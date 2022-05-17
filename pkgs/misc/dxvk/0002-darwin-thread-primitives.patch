@@ -1,3 +1,4 @@
+Revert of commit 7305da6951f038c253ef50431093e25679a52e17
 diff --git a/src/util/thread.h b/src/util/thread.h
 index 28aeca8a..db5c9913 100644
 --- a/src/util/thread.h
